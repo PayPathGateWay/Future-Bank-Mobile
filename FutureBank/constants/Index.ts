@@ -6,3 +6,8 @@ export const cashImage =  require("../assets/images/Cash.png");
 export const logoImage =  require("../assets/images/logo.png");
 export const yellowGlowImage = require("../assets/images/bg.png");
 export const purpleGlow = require("../assets/images/purpleGlow.png");
+
+export const SendMoeny = require("../assets/images/SendMoeny.png")
+export const Trust = require("../assets/images/Trust.png")
+export const iconBack = require("../assets/images/IconButtons.png")
+export const ReceiveMoney= require("../assets/images/ReceiveMoney.png")

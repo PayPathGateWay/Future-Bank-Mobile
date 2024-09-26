@@ -27,7 +27,9 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^15.7.1",
     "tailwind-rn": "^4.2.0",
-    "twrnc": "^4.5.1"
+    "twrnc": "^4.5.1",
+    "typescript": "~5.3.3",
+    "@types/react": "~18.2.79"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -13,20 +13,7 @@ const RegisterScreen: React.FC = () => {
 
   return (
     <View>
-      <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-      />
-      <TextInput
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <Button title={loading ? "Register in..." : "Register"} onPress={handleRegister} />
-      {/* {error && <Text>{error}</Text>} */}
+
     </View>
   );
 };

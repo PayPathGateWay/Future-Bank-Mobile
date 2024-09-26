@@ -51,10 +51,10 @@ export default function Slider() {
             />
 
             <View style={{ alignItems: "flex-start" }}>
-                <Text style={{ color: '#F7F7F7', fontSize: 12, textTransform: 'uppercase', marginBottom: 8 }}>
+                <Text style={{ color: '#F7F7F7', fontSize: 15, textTransform: 'uppercase', marginBottom: 8 }}>
                     {item.head}
                 </Text>
-                <Text style={{ color: '#F7F7F7', fontSize: 34, fontWeight: 'bold', marginBottom: 16 }}>
+                <Text style={{ color: '#F7F7F7', fontSize: 37, fontWeight: 'bold', marginBottom: 16 }}>
                     {item.title}
                 </Text>
                 <Text style={{ color: '#F7F7F7', textAlign: 'left' }}>{item.message}</Text>
@@ -69,16 +69,16 @@ export default function Slider() {
     };
 
     return (
-        <View className='flex-col gap-28'>
+        <View className='flex-col gap-20 pt-5'>
 
 
-            <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 16 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 20, paddingTop: 2 }}>
                 {slides.map((_, index) => (
                     <View
                         key={index}
                         style={{
-                            height: 6,
-                            width: 100,
+                            height: 5,
+                            width:80,
                             marginHorizontal: 4,
                             borderRadius: 8,
                             backgroundColor: currentSlide === index ? '#FFC45F' : 'gray',
