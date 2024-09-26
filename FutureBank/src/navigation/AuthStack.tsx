@@ -4,10 +4,10 @@ import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/
 import { useNavigation } from '@react-navigation/native';
 import Onboarding from '../screens/OnBoarding';
 import LoginScreen from '../screens/LoginScreen';
-import RegisterScreen from '../screens/RegisterScreen';
+import RegisterStack from './RegisterStack'; // Import RegisterStack
 import { AuthStackParamList } from '../types/AuthStackParamList';
-import { iconBack, logoImage } from '../../constants/Index';
-import tw from 'twrnc';
+import { logoImage } from '../../constants/Index'; // Adjust path based on your structure
+import IconBack from '../../assets/images/iconBack';
 
 const Stack = createStackNavigator<AuthStackParamList>();
 
@@ -17,30 +17,27 @@ export default function AuthStack() {
   // Handle back button press for Android
   useEffect(() => {
     const backAction = () => {
-      // Show an alert before exiting the app
       Alert.alert(
         'Exit App',
         'Are you sure you want to exit the app?',
         [
           {
             text: 'Cancel',
-            onPress: () => null, // Do nothing
+            onPress: () => null,
             style: 'cancel',
           },
           {
             text: 'Exit',
-            onPress: () => BackHandler.exitApp(), // Exit the app
+            onPress: () => BackHandler.exitApp(),
           },
         ],
         { cancelable: true }
       );
-      return true; // Prevent default behavior (exiting the app immediately)
+      return true;
     };
 
-    // Add the back button event listener
     const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
 
-    // Cleanup the event listener on component unmount
     return () => backHandler.remove();
   }, []);
 
@@ -88,23 +85,18 @@ export default function AuthStack() {
       />
       <Stack.Screen
         name="Register"
-        component={RegisterScreen}
+        component={RegisterStack} // RegisterStack is used here
         options={{
           headerTitle: () => (
             <Image
               source={logoImage}
-              style={{ width: 120, height: 40 }}
-              resizeMode="contain"
+              style={{ width: 100, height: 40, resizeMode: 'contain', paddingTop: 5, marginTop: 30 }}
             />
           ),
           headerTitleAlign: 'center',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Image
-                source={iconBack}
-                style={{ width: 25, height: 25, marginLeft: 20 }}
-                resizeMode="contain"
-              />
+              <IconBack width={35} height={35} style={{ marginLeft: 20, marginTop: 33 }} />
             </TouchableOpacity>
           ),
           headerStyle: {

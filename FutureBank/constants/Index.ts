@@ -9,5 +9,29 @@ export const purpleGlow = require("../assets/images/purpleGlow.png");
 
 export const SendMoeny = require("../assets/images/SendMoeny.png")
 export const Trust = require("../assets/images/Trust.png")
-export const iconBack = require("../assets/images/IconButtons.png")
 export const ReceiveMoney= require("../assets/images/ReceiveMoney.png")
+
+
+
+// models/index.ts
+
+import { Models } from '@rematch/core';
+import { form } from './form'; // Assuming you have a form model
+
+export interface RootModel extends Models<RootModel> {
+  form: typeof form;
+}
+
+export const models: RootModel = {
+  form,
+};
+
+
+// constants.ts
+
+export const FORM_IDS = {
+    USER_REGISTRATION_FORM: 'USER_REGISTRATION_FORM',
+    EVENT_FORM: 'EVENT_FORM',
+    ERRORS: 'ERRORS',
+  };
+  
