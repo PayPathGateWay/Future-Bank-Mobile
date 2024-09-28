@@ -5,5 +5,6 @@ export type AuthStackParamList = {
   Register: undefined;   // No parameters expected
   PersonalData: undefined;
   SendVerifyEmail: undefined;
-  VerifyOTP: undefined;
+  IDVerification: undefined;
+  
 };
