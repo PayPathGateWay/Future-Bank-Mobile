@@ -1,5 +1,4 @@
 {
-  
   "expo": {
     "name": "FutureBank",
     "slug": "FutureBank",
@@ -8,17 +7,31 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "We need access to your camera for ID verification.",
+        "NSMicrophoneUsageDescription": "We need access to your microphone for recording video."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FFFFFF"
       },
-      "package": "com.anonymous.FutureBank"
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow FutureBank to access your camera",
+          "microphonePermission": "Allow FutureBank to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ]
   }
 }

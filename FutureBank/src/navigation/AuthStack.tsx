@@ -7,7 +7,7 @@ import LoginScreen from '../screens/LoginScreen';
 import RegisterStack from './RegisterStack'; // Import RegisterStack
 import { AuthStackParamList } from '../types/AuthStackParamList';
 import { logoImage } from '../../constants/Index'; // Adjust path based on your structure
-import IconBack from '../../assets/images/iconBack';
+import IconBack from '../../assets/images/IconBack';
 
 const Stack = createStackNavigator<AuthStackParamList>();
 

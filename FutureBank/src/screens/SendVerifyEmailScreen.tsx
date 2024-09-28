@@ -35,7 +35,7 @@ const CombinedVerifyScreen: React.FC = () => {
           if (prev === 1) {
             clearInterval(timer);
             setIsResendDisabled(false);
-            return 5;
+            return 40;
           }
           return prev - 1;
         });
@@ -53,8 +53,9 @@ const CombinedVerifyScreen: React.FC = () => {
       alert('OTP Verified Successfully!');
       setIsLoading(false);
       dispatch.form.removeOne({ formId: FORM_IDS.USER_REGISTRATION_FORM });
-      // navigation.navigate('Home');
+      navigation.navigate('IDVerification');
     }, 2000);
+
   };
 
   const handleResendOTP = () => {
@@ -67,7 +68,7 @@ const CombinedVerifyScreen: React.FC = () => {
 
 
       {/* Readonly input for email */}
-      <View className="mb-5 w-[350px]">
+      <View className="mb-5 w-[330px]">
         <Text className="text-white text-2xl mb-3">Email Address Verification</Text>
         <Text className="text-[#6B698E] text-sm mb-1">Email Address:</Text>
         <View className="bg-[#262626] px-3 py-4 rounded-md border border-[#9491BB]">
@@ -152,12 +153,12 @@ const CombinedVerifyScreen: React.FC = () => {
             {/* Loading and Submit */}
 
             {isLoading ? (
-              <ActivityIndicator size="large" color="yellow" className='pb-2 p-5' />
+              <ActivityIndicator size="large" color="yellow"/>
             ) : (
               <TouchableOpacity
                 onPress={handleSubmit as any}
                 disabled={values.otp.length < 5}
-                className={`w-[350px] ml-3 py-4 justify-center rounded-full text-center ${values.otp.length < 5 ?
+                className={`w-[330px]  py-4 justify-center rounded-full text-center ${values.otp.length < 5 ?
                   'bg-[#D6D3FF] opacity-25' :
                   'bg-[#D6D3FF]'
                   }`}
@@ -174,7 +175,7 @@ const CombinedVerifyScreen: React.FC = () => {
       <TouchableOpacity
         onPress={handleResendOTP}
         disabled={isResendDisabled}
-        className={`w-[350px] ml-3 py-4 justify-center rounded-full text-center mt-2 ${isResendDisabled ?
+        className={`w-[330px] py-4 justify-center rounded-full text-center mt-2 ${isResendDisabled ?
           'bg-[#D6D3FF] opacity-30' : 'bg-[#D6D3FF]'}`}
       >
         <Text className={`${isResendDisabled ? 'text-white' : 'text-black'} font-bold text-center`}>

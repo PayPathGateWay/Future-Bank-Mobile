@@ -10,8 +10,7 @@ export const purpleGlow = require("../assets/images/purpleGlow.png");
 export const SendMoeny = require("../assets/images/SendMoeny.png")
 export const Trust = require("../assets/images/Trust.png")
 export const ReceiveMoney= require("../assets/images/ReceiveMoney.png")
-
-
+export const DimondIcon = require("../assets/images/dimond.png")
 
 // models/index.ts
 
