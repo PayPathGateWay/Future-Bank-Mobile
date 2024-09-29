@@ -12,7 +12,12 @@ const Stack = createStackNavigator();
 export default function MainNav() {
   return (
     <NavigationContainer>
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+   <Stack.Navigator 
+        screenOptions={{
+          headerShown: false,
+          // cardStyle: { backgroundColor: 'black' } // Set background color to black
+        }}
+      >
       {/* We will create the rerendering loagic here just drive themee to the login page and save the user entry and logout */}
       {/* This will be in the authContext and localStorage to store the date */}
       <Stack.Screen name="Auth" component={AuthStack} />

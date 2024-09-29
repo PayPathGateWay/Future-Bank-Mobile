@@ -51,8 +51,18 @@ const AppStack = () => {
     return (
         <Tab.Navigator
             screenOptions={{
-                tabBarStyle: { backgroundColor: 'black', height:90, paddingBottom: 20, paddingTop:20, borderRadius: 30  },
+                tabBarStyle: {
+                    backgroundColor: 'black',
+                    height: 90,
+                    borderTopColor: 'black',
+                    paddingBottom: 20,
+                    // paddingTop: 20,
+                    // borderRadius: 30,
+                },
                 tabBarActiveTintColor: '#fef08a',
+                // tabBarBackground: () => (
+                //     <View style={{ backgroundColor: 'black', flex: 1 }} />
+                // ),
             }}
         >
             <Tab.Screen
@@ -72,6 +82,14 @@ const AppStack = () => {
                 }}
             />
 
+            <Tab.Screen
+                name="Cards"
+                component={TransactMenu}
+                options={{
+                    tabBarIcon: ({ color }) => <Ionicons name="card" size={26} color={color} />,
+                    headerShown: false,
+                }}
+            />
             <Tab.Screen
                 name="Transact"
                 component={TransactMenu}
