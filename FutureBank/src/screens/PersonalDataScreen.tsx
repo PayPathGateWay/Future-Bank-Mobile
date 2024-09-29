@@ -23,7 +23,6 @@ import { FORM_IDS } from '../../constants/Index';
 // Define the navigation prop type
 type PersonalDataScreenProp = StackNavigationProp<AuthStackParamList, 'PersonalData'>;
 
-// Validation schema
 const PersonalDataSchema = Yup.object().shape({
   firstName: Yup.string().min(2, 'Too Short!').required('Required'),
   lastName: Yup.string().min(2, 'Too Short!').required('Required'),

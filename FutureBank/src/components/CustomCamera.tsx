@@ -54,12 +54,15 @@ const CustomCamera: React.FC<{ onClose: () => void; onSubmitted: () => void }> =
 
     return (
         <View className="flex-1 bg-black">
-            <Text className='text-white'>Personal Id</Text>
             {!photoUri ? (
                 <View className="flex-1 justify-center items-center">
+                    <Text className='text-white font-bold text-xl absolute left-[35%] top-10'>Personal Id</Text>
+                    <Text className="text-[#6B698E] text-sm mb-1 absolute left-[29%] top-16">
+                        Tack A photo of your id
+                    </Text>
                     {/* Square Overlay for Camera */}
                     <View className="relative">
-                        <CameraView ref={cameraRef} style={{ width: 300, height: 300 }}>
+                        <CameraView ref={cameraRef} style={{ width: 300, height: 400 }}>
                             {/* Text Component */}
                             <View className="absolute top-4 left-0 right-0 flex-row justify-between p-4">
                                 <TouchableOpacity onPress={onClose} className="bg-red-600 p-2 rounded-full">
@@ -78,7 +81,7 @@ const CustomCamera: React.FC<{ onClose: () => void; onSubmitted: () => void }> =
 
                             {/* Loading Indicator for Taking Photo */}
                             {loading && (
-                                <View className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70">
+                                <View className="absolute left-[35%] top-10 inset-0 flex justify-center items-center bg-black bg-opacity-70">
                                     <ActivityIndicator size="large" color="white" />
                                     <Text className="text-white mt-2">Taking Photo...</Text>
                                 </View>
@@ -88,19 +91,21 @@ const CustomCamera: React.FC<{ onClose: () => void; onSubmitted: () => void }> =
                 </View>
             ) : (
                 <View className="flex-1 justify-center items-center">
-                    <Image source={{ uri: photoUri }} className="w-72 h-72 border-4 border-white rounded" resizeMode="contain" />
+                    <View className='border-4 border-white rounded bg-contain w-72'>
+                        <Image source={{ uri: photoUri }} className="w-72 h-72 " resizeMode="contain" />
+                    </View>
 
                     {/* Retake Button */}
                     {!isSubmitted && (
-                        <TouchableOpacity onPress={() => setPhotoUri(null)} className="absolute top-10 left-5 bg-red-600 p-3 rounded">
-                            <Text className="text-white">Retake</Text>
+                        <TouchableOpacity onPress={() => setPhotoUri(null)} className="absolute top-10 left-5 bg-[#D6D3FF]  p-3 rounded">
+                            <Text className="text-black">Retake</Text>
                         </TouchableOpacity>
                     )}
 
                     {/* Submit Button */}
                     {!isSubmitted && (
-                        <TouchableOpacity onPress={handleSubmit} className="absolute bottom-10 bg-green-600 p-3 rounded">
-                            <Text className="text-white">Submit and Close</Text>
+                        <TouchableOpacity onPress={handleSubmit} className="bg-[#D6D3FF] mt-10 w-[300px] h-8 rounded-full flex-row justify-center items-center">
+                            <Text className="text-black font-bold">Submit and Close</Text>
                         </TouchableOpacity>
                     )}
 

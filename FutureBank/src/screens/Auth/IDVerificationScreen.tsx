@@ -4,10 +4,14 @@ import { FontAwesome } from '@expo/vector-icons';
 import { DimondIcon } from '../../../constants/Index'; // Replace with actual path
 import CustomCamera from '../../components/CustomCamera';
 import CheckIcon from '../../../assets/images/CheckIcon'; // Ensure CheckIcon is a valid React component
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/native-stack/types';
+import { AuthStackParamList } from '../../types/AuthStackParamList';
 
 const IDVerificationScreen: React.FC = () => {
   const [showCamera, setShowCamera] = useState(false);
   const [isIDSubmitted, setIsIDSubmitted] = useState(false); // State to track ID submission
+  const navigation = useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
 
   const handleTakePhoto = () => {
     setShowCamera(true);
@@ -52,11 +56,11 @@ const IDVerificationScreen: React.FC = () => {
   
             {/* Camera Button */}
             <TouchableOpacity
-              className="bg-[#7C77FF] p-3 rounded-full flex-row justify-center items-center"
+              className="bg-[#D6D3FF] p-3 rounded-full flex-row justify-center items-center"
               onPress={handleTakePhoto}
             >
-              <FontAwesome name="camera" size={16} color="white" />
-              <Text className="text-white ml-2">Take Photo</Text>
+              <FontAwesome name="camera" size={16} color="black" />
+              <Text className="text-black ml-2">Take Photo</Text>
             </TouchableOpacity>
           </View>
         </>
@@ -65,13 +69,15 @@ const IDVerificationScreen: React.FC = () => {
       )}
   
       {!showCamera && (
-        <TouchableOpacity className="bg-[#7C77FF] p-4 w-[330px] rounded-full mt-auto mb-5 mx-auto">
+        <TouchableOpacity
+          className={`p-4 w-[330px] rounded-full mt-auto mb-5 mx-auto ${isIDSubmitted ? 'bg-green-500' : 'bg-[#D6D3FF] opacity-30'}`}
+          onPress={() => isIDSubmitted &&     navigation.navigate("AccountCreationSuccessful")} // Add account creation logic here
+        >
           <Text className="text-center text-white text-lg">Create Account</Text>
         </TouchableOpacity>
       )}
     </SafeAreaView>
   );
-  
 };
 
 export default IDVerificationScreen;

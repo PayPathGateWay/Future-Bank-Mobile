@@ -6,6 +6,7 @@ import VerifyOTPScreen from '../screens/VerifyOTPScreen';
 import { AuthStackParamList } from '../types/AuthStackParamList';
 import { Easing } from 'react-native';
 import IDVerificationScreen from '../screens/Auth/IDVerificationScreen';
+import AccountCreationSuccessfulScreen from '../screens/Auth/AccountCreationSuccessfulScreen';
 
 const Stack = createStackNavigator<AuthStackParamList>();
 
@@ -64,6 +65,8 @@ const RegisterStack: React.FC = () => {
           title: 'IDVerification', headerShown: false
         }}
       />
+
+
     </Stack.Navigator>
   );
 };

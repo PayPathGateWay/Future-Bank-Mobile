@@ -3,17 +3,17 @@ import { Easing, Image, TouchableOpacity, Alert, BackHandler } from 'react-nativ
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import Onboarding from '../screens/OnBoarding';
-import LoginScreen from '../screens/LoginScreen';
+import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterStack from './RegisterStack'; // Import RegisterStack
 import { AuthStackParamList } from '../types/AuthStackParamList';
 import { logoImage } from '../../constants/Index'; // Adjust path based on your structure
 import IconBack from '../../assets/images/IconBack';
+import AccountCreationSuccessfulScreen from '../screens/Auth/AccountCreationSuccessfulScreen';
 
 const Stack = createStackNavigator<AuthStackParamList>();
 
 export default function AuthStack() {
   const navigation = useNavigation();
-
   // Handle back button press for Android
   useEffect(() => {
     const backAction = () => {
@@ -105,6 +105,14 @@ export default function AuthStack() {
             shadowOpacity: 0,
             borderBottomWidth: 0,
           },
+        }}
+      />
+
+      <Stack.Screen
+        name="AccountCreationSuccessful"
+        component={AccountCreationSuccessfulScreen}
+        options={{
+          title: 'AccountCreationSuccessful', headerShown: false
         }}
       />
     </Stack.Navigator>

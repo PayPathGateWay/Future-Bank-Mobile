@@ -6,5 +6,6 @@ export type AuthStackParamList = {
   PersonalData: undefined;
   SendVerifyEmail: undefined;
   IDVerification: undefined;
+  AccountCreationSuccessful: undefined;
   
 };
